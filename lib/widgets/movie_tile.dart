@@ -15,14 +15,22 @@ class MovieTile extends StatelessWidget {
       child: ListTile(
         leading: SizedBox(
           width: 80,
-          height: 200, // Adjust the height as needed
+          height: 200, 
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: AspectRatio(
-              aspectRatio:3/4, // Adjust the aspect ratio to increase the height
+              aspectRatio: 3 / 4, 
               child: Image.network(
                 "https://image.tmdb.org/t/p/w600_and_h900_bestv2${imageUrl}",
                 fit: BoxFit.cover,
+                errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                  return const Center(
+                    child: Icon(
+                      Icons.error,
+                      color: Colors.red,
+                    ),
+                  );
+                },
               ),
             ),
           ),
@@ -39,13 +47,13 @@ class MovieTile extends StatelessWidget {
             SizedBox(height: 4),
             Text(
               genre,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.grey,
               ),
             ),
           ],
         ),
-        trailing: Icon(
+        trailing: const Icon(
           Icons.more_horiz,
           color: Colors.blue,
         ),

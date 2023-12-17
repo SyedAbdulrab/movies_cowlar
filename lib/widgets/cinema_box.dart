@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CinemaBox extends StatefulWidget {
@@ -13,13 +12,13 @@ class CinemaBox extends StatefulWidget {
 }
 
 class _CinemaBoxState extends State<CinemaBox> {
-  bool isTapped = false; // Add a boolean variable to track if the box is tapped
+  bool isTapped = false;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
         Column(
@@ -50,7 +49,7 @@ class _CinemaBoxState extends State<CinemaBox> {
               onTap: () {
                 setState(() {
                   isTapped =
-                      !isTapped; // Toggle the isTapped value when the box is tapped
+                      !isTapped; 
                 });
               },
               child: Container(
@@ -61,7 +60,7 @@ class _CinemaBoxState extends State<CinemaBox> {
                     color: widget.isClicked
                         ? Colors.lightBlue
                         : Colors
-                            .grey, // Set border color based on isTapped value
+                            .grey, 
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(8),
@@ -69,16 +68,16 @@ class _CinemaBoxState extends State<CinemaBox> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical:20.0,horizontal: 40),
                   child: Image.asset(
-                    'assets/images/cinemaseats.png', // Replace with your image URL
+                    'assets/images/cinemaseats.png', 
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
-            Row(
+            const Row(
               children: [
                 Text("From ",
                     style: TextStyle(

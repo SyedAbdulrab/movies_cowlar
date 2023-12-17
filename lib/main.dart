@@ -15,24 +15,16 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(MovieAdapter());
-  print('hello jee 1');
   await Hive.openBox<Movie>('popmovies');
 
-  print('hello jee 2');
-
   final Box<Movie> movieBox = Hive.box<Movie>('popmovies');
-  print('hello jee 3');
   // movieBox.clear();
 
   if (movieBox.isEmpty) {
-    print('hello jee 4');
-
     final List<Movie> movies = await MovieService().fetchMovies();
     print(movies);
     movieBox.addAll(movies);
   }
-
-  print('hello jee 5');
 
   runApp(const ProviderScope(child: const MyApp()));
 }
@@ -53,7 +45,7 @@ class _MyAppState extends State<MyApp> {
     const FavoritesScreen(),
     const ProfileScreen(),
   ];
-  
+
   ColorScheme customColorScheme = Utilities().customColorScheme;
   @override
   Widget build(BuildContext context) {
@@ -70,10 +62,10 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Theme.of(context).colorScheme.surface,
         extendBodyBehindAppBar: true,
         body: _screens[_currentIndex],
-        bottomNavigationBar:  ClipRRect(
+        bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.circular(30.0),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 12,vertical:12 ),
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             color: Color.fromRGBO(46, 39, 47, 1),
             child: BottomNavigationBar(
               currentIndex: _currentIndex,
@@ -85,17 +77,17 @@ class _MyAppState extends State<MyApp> {
               selectedItemColor: Colors.white,
               unselectedItemColor: Colors.grey,
               elevation: 10,
-              selectedFontSize: 15, // Increase font size
-              unselectedFontSize: 14, // Increase font size
-              selectedLabelStyle:const TextStyle(
+              selectedFontSize: 15, 
+              unselectedFontSize: 14, 
+              selectedLabelStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 14, // Increase font size
+                fontSize: 14, 
               ),
-              unselectedLabelStyle:const TextStyle(
+              unselectedLabelStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 14, // Increase font size
+                fontSize: 14, 
               ),
-              iconSize: 26, // Increase icon size
+              iconSize: 26, 
               items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),

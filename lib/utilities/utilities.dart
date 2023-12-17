@@ -143,43 +143,30 @@ class Utilities {
   ];
 
   ColorScheme customColorScheme = const ColorScheme(
-    // Primary color for your app (e.g., app bar, buttons)
     primary: Color(0xFF61C3F2),
 
-    // Darker variant of the primary color
     primaryContainer: Color(0xFF564CA3),
 
-    // Secondary color for your app (e.g., floating action button)
     secondary: Color(0xFFCD9D0F),
 
-    // Darker variant of the secondary color
     secondaryContainer: Color(0xFFE26CA5),
 
-    // Background color for your app
     background: Color(0xEFEFEF),
 
-    // Surface color for your app (e.g., cards, dialogs)
     surface: Color(0xFFF6F6FA),
 
-    // Error color for indicating errors
     error: Color(0xFFDBDBDF),
 
-    // Text and icons on the primary color
     onPrimary: Color(0x202C43),
 
-    // Text and icons on the secondary color
     onSecondary: Color(0x2E2739),
 
-    // Text and icons on the surface color
     onSurface: Colors.black,
 
-    // Text and icons on the background color
     onBackground: Color.fromARGB(228, 246, 246, 250),
 
-    // Text and icons on the error color
     onError: Colors.black,
 
-    // Brightness of the color scheme (light or dark)
     brightness: Brightness.light,
   );
 

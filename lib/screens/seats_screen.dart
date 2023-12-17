@@ -11,9 +11,8 @@ class SeatsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Colors.white, // Set app bar color to white
+        backgroundColor: Colors.white,
         title: Center(
-          // Center the title and release date
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -24,9 +23,9 @@ class SeatsScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Colors.black),
               ),
-              Text(
+              const Text(
                 "March 5, 2021 | 12:30 hall 1",
-                style: const TextStyle(fontSize: 16, color: Colors.lightBlue),
+                style:  TextStyle(fontSize: 16, color: Colors.lightBlue),
               ),
             ],
           ),
@@ -39,7 +38,7 @@ class SeatsScreen extends StatelessWidget {
               padding: EdgeInsets.all(50),
               child: InteractiveViewer(
                 child: Image.asset(
-                  'assets/images/cinemaseats.png', // Replace with your image path
+                  'assets/images/cinemaseats.png', 
                   fit: BoxFit.contain,
                 ),
               ),
@@ -50,36 +49,36 @@ class SeatsScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Row(
+                const Row(
                   children: [
-                    const SeatIcon(
+                     SeatIcon(
                         text: "Selected",
-                        color: const Color.fromRGBO(205, 157, 15, 1)),
+                        color:  Color.fromRGBO(205, 157, 15, 1)),
                     SizedBox(
                       width: 34,
                     ),
-                    const SeatIcon(
+                     SeatIcon(
                         text: "Not Available",
                         color: Color.fromRGBO(166, 166, 166, 1)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 18,
                 ),
-                Row(
+                const Row(
                   children: [
-                    const SeatIcon(
+                     SeatIcon(
                         text: "VIP (\$150)",
                         color: const Color.fromRGBO(86, 76, 163, 1)),
                     SizedBox(
                       width: 24,
                     ),
-                    const SeatIcon(
+                     SeatIcon(
                         text: "Regular (\$50)",
                         color: const Color.fromRGBO(97, 195, 242, 1)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
@@ -88,7 +87,7 @@ class SeatsScreen extends StatelessWidget {
                       width: 110,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Chip(
+                        child: const Chip(
                           backgroundColor:
                               Color.fromRGBO(166, 166, 166, 0.1),
                           label: Row(children: [
@@ -125,7 +124,7 @@ class SeatsScreen extends StatelessWidget {
                     color: Color.fromRGBO(166, 166, 166, 0.1),
                     height: 50,
                     width: 110,
-                    child: Column(
+                    child: const Column(
                       children: [
                         Text("Total Price"),
                         Text(

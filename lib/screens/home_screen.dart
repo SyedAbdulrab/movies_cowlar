@@ -70,7 +70,7 @@ class _MovieListState extends State<MovieList> {
             crossAxisCount: 1,
             crossAxisSpacing: 8.0,
             mainAxisSpacing: 8.0,
-            childAspectRatio: 335 / 180, // Set the width and height ratios here
+            childAspectRatio: 335 / 180,
           ),
           itemCount: movies.length,
           itemBuilder: (context, index) {

@@ -62,7 +62,7 @@ class MovieAdapter extends TypeAdapter<Movie> {
   }
 }
 
-// imp note:-
+// imp notes:-
 // MovieAdapter is a class that extends TypeAdapter<Movie>. 
 //This tells Hive how to convert 
 //your Movie objects to and from binary form, 

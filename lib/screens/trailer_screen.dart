@@ -4,8 +4,8 @@ import 'package:movies_cowlar/services/movie_service.dart';
 
 class TrailerScreen extends StatefulWidget {
   final int movieId;
-
-  const TrailerScreen({Key? key, required this.movieId}) : super(key: key);
+  final String movie;
+  const TrailerScreen({Key? key, required this.movieId,required this.movie}) : super(key: key);
 
   @override
   _TrailerScreenState createState() => _TrailerScreenState();
@@ -13,11 +13,19 @@ class TrailerScreen extends StatefulWidget {
 
 class _TrailerScreenState extends State<TrailerScreen> {
   String? movieKey;
+  late YoutubePlayerController _controller; 
 
   @override
   void initState() {
     super.initState();
     fetchAndSetTrailerKey();
+  }
+
+  @override
+  void dispose() {
+    _controller.pause(); 
+    _controller.dispose();
+    super.dispose();
   }
 
   Future<void> fetchAndSetTrailerKey() async {
@@ -29,6 +37,13 @@ class _TrailerScreenState extends State<TrailerScreen> {
 
       setState(() {
         movieKey = extractTrailerKey(trailersResponse);
+        _controller = YoutubePlayerController( 
+          initialVideoId: movieKey!,
+          flags: const YoutubePlayerFlags(
+            autoPlay: true,
+            mute: false,
+          ),
+        );
       });
 
       print('Trailer Key: $movieKey');
@@ -50,36 +65,32 @@ class _TrailerScreenState extends State<TrailerScreen> {
   @override
   Widget build(BuildContext context) {
     if (movieKey == null) {
-      // Show a circular progress indicator while fetching
+      
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text('movie name',style: TextStyle(color: Colors.white),),
+          title:  Text(
+            widget.movie,
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
-        body: Center(
+        body:const Center(
           child: CircularProgressIndicator(),
         ),
       );
     }
 
-    YoutubePlayerController _controller = YoutubePlayerController(
-      initialVideoId: movieKey!,
-      flags: YoutubePlayerFlags(
-        autoPlay: true,
-        mute: false,
-      ),
-    );
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Trailer Screen'),
+        backgroundColor: Colors.black,
+        title: Text(widget.movie,style: const TextStyle(color: Colors.white),),
       ),
       body: Center(
         child: YoutubePlayer(
-          controller: _controller,
+          controller: _controller, 
           showVideoProgressIndicator: true,
           progressIndicatorColor: Colors.red,
-          progressColors: ProgressBarColors(
+          progressColors:const ProgressBarColors(
             playedColor: Colors.red,
             handleColor: Colors.redAccent,
           ),

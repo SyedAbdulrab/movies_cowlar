@@ -10,6 +10,7 @@ class MovieService {
   final String endpoint =
       'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
 
+  // add to env vars later
   final apiKey =
       "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMmU2ODExYWJhNzUwNTY1MWI2YzdlZWNhNDgzZGIyMiIsInN1YiI6IjY1NzQyZjQwNjZmMmQyMDExYmVjMWIxZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OORC5IfUdG7UdDpXy9d_WXg6xxpz7MnvIJa33-k3bUo";
 

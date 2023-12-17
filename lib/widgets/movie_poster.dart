@@ -21,7 +21,7 @@ class MoviePoster extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.57,
                 width: double.infinity,
               ),
-              // Back Arrow and Watch Text
+              
               Positioned(
                 top: 4.0,
                 left: 6.0,
@@ -53,7 +53,7 @@ class MoviePoster extends StatelessWidget {
                 right: 0,
                 child:  Center(
                   child: Text(
-                    'In Theatres ${_utilities.formatDateString(releaseDate)}', // Replace with the actual release date
+                    'In Theatres ${_utilities.formatDateString(releaseDate)}',
                     style:const TextStyle(
                       color: Colors.white,
                       fontFamily: 'Poppins',
@@ -62,14 +62,12 @@ class MoviePoster extends StatelessWidget {
                   ),
                 ),
               ),
-              // Get Tickets and Watch Trailer Buttons
               Positioned(
                 top: MediaQuery.of(context).size.height * 0.355,
                 left: 16.0,
                 right: 16.0,
                 child: Column(
                   children: [
-                    // Get Tickets Button
                     ElevatedButton(
                       
                       onPressed: () {
@@ -78,11 +76,6 @@ class MoviePoster extends StatelessWidget {
                             return TicketsScreen(releaseDate: _utilities.formatDateString(releaseDate),movieTitle: movieTitle,);
                           },));
                       },
-                      
-                      child:  const Text(
-                        'Get Tickets',
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 16),
-                      ),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
@@ -91,6 +84,11 @@ class MoviePoster extends StatelessWidget {
                         minimumSize: const Size(double.infinity, 54),
                         padding: EdgeInsets.zero,
                       ),
+                      
+                      child:  const Text(
+                        'Get Tickets',
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 16),
+                      ),
                     ),
                     const SizedBox(height: 8.0), // Adjusted spacing
                     // Watch Trailer Button
@@ -98,7 +96,7 @@ class MoviePoster extends StatelessWidget {
                       onPressed: () {
                         print("VROOOOOOOOOM");
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                            return TrailerScreen(movieId:movieId);
+                            return TrailerScreen(movieId:movieId,movie: movieTitle,);
                           },));
                         },
                       icon: const Icon(Icons.play_arrow, color: Colors.white),

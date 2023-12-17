@@ -88,21 +88,21 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
                 decoration: InputDecoration(
                   contentPadding:
-                      const EdgeInsets.fromLTRB(20, 12, 10, 10), // Added padding
+                      const EdgeInsets.fromLTRB(20, 12, 10, 10),
                   hintText: 'Search Movies...',
                   hintStyle: const TextStyle(
                     fontWeight: FontWeight.w300,
-                    color: Colors.grey, // Set hint text color
+                    color: Colors.grey, 
                   ),
                   border: OutlineInputBorder(
                     borderRadius:
-                        BorderRadius.circular(25.0), // Smoothly rounded border
+                        BorderRadius.circular(25.0), 
                     borderSide: BorderSide.none,
                   ),
                   prefixIcon: const Icon(Icons.search,
-                      color: Colors.grey), // Set icon color
+                      color: Colors.grey), 
                   suffixIcon: IconButton(
-                    icon:const Icon(Icons.clear, color: Colors.grey), // Set icon color
+                    icon:const Icon(Icons.clear, color: Colors.grey), 
                     onPressed: () {
                       searchController.clear();
                       searchMovies('');
@@ -125,7 +125,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 Padding(
       padding: const EdgeInsets.fromLTRB(20,12,8,8),
       child: Align(
-        alignment: Alignment.centerLeft, // Align left
+        alignment: Alignment.centerLeft, 
         child: Text(
           'Results found: ${filteredMovies.length}',
           style:const TextStyle(
@@ -138,9 +138,9 @@ class _SearchScreenState extends State<SearchScreen> {
     Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
       child: Divider(
-        color: Colors.grey[300], // Light grey color for the divider
-        thickness: 1.0, // You can adjust the thickness as needed
-        height: 8.0, // You can adjust the height as needed
+        color: Colors.grey[300], 
+        thickness: 1.0, 
+        height: 8.0, 
       ),
     ),
                 Expanded(
@@ -181,10 +181,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 )
               : Column(
   children: [
-    Padding(
-      padding: const EdgeInsets.fromLTRB(20,12,8,8),
+    const Padding(
+      padding:  EdgeInsets.fromLTRB(20,12,8,8),
       child: Align(
-        alignment: Alignment.centerLeft, // Align left
+        alignment: Alignment.centerLeft, 
         child: Text(
           'Top Results',
           style: TextStyle(
@@ -197,9 +197,9 @@ class _SearchScreenState extends State<SearchScreen> {
     Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
       child: Divider(
-        color: Colors.grey[300], // Light grey color for the divider
-        thickness: 1.0, // You can adjust the thickness as needed
-        height: 8.0, // You can adjust the height as needed
+        color: Colors.grey[300], 
+        thickness: 1.0, 
+        height: 8.0, 
       ),
     ),
     Expanded(

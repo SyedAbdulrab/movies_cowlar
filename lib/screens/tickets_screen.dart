@@ -13,9 +13,8 @@ class TicketsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Colors.white, // Set app bar color to white
+        backgroundColor: Colors.white, 
         title: Center(
-          // Center the title and release date
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -34,25 +33,24 @@ class TicketsScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
+      body:  Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             SizedBox(height: 60),
-            Padding(
+             const SizedBox(height: 60),
+            const Padding(
               padding: EdgeInsets.only(left: 16, top: 16),
               child: Text(
                 'Date',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
               ),
             ),
-            SizedBox(height: 16),
-            Container(
+            const SizedBox(height: 16),
+             Container(
               height: 30,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: const [
-                  // Add your date widgets here
                   DatePill(
                     date: "5 mar",
                     isActive: true,
@@ -86,7 +84,6 @@ class TicketsScreen extends StatelessWidget {
                     isActive: false,
                   ),
 
-                  // Add more dates as needed
                 ],
               ),
             ),
@@ -105,7 +102,6 @@ class TicketsScreen extends StatelessWidget {
                   CinemaBox(isClicked: false,),
                   CinemaBox(isClicked: false,),
                   
-                  // Add more CinemaBox widgets as needed
                 ],
               ),
             ),
@@ -113,14 +109,14 @@ class TicketsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                width: double.infinity, // Take the entire width
+                width: double.infinity, 
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(97, 195, 242, 1), // Set button color to light blue
+                    primary:const Color.fromRGBO(97, 195, 242, 1), 
                     shape: RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.circular(5), // Set border radius to 5
+                          BorderRadius.circular(5), 
                     ),
                   ),
                   onPressed: () {
