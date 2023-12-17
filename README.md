@@ -1,16 +1,38 @@
-# movies_cowlar
+# Movies
 
-A new Flutter project.
+- Home Screen
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/07777ad5-4c77-438c-8918-d90e8bdf11b4)
 
-## Getting Started
+- Search Screen
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/a986c6a7-edb3-4047-81c1-4be2f4464124)
 
-This project is a starting point for a Flutter application.
+- Searching Movies
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/d12a8858-346b-4483-8893-b465559d2b04)
 
-A few resources to get you started if this is your first Flutter project:
+- Searched Movies
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/a3a93219-c573-4a8e-b441-aa217446647f)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Movie Details Screen
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/513613cc-fc8c-41ab-a0d3-06efd2a4cc8e)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Tickets Screen
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/86362d59-a0fb-42f4-ad06-c0077cd072cf)
+
+- Seats Screen
+-  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/916649d4-63e5-4b44-983b-819ef838647c)
+
+- Trailer Screen
+
+
+
+# Project Structure 
+
+- lib/: Contains the main source code of the Flutter app.
+- screens/: Screens / pages of the app.
+- widgets/: Reusable widgets.
+- services/: Business Logic / Api request Service.
+- models/: Data models used in the app.
+- provider/: Providers used in the app
+- utilities/: Utility functions and variables that are used throughout the app
+- test/: widget tests
+    
