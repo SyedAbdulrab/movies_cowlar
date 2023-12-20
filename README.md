@@ -1,4 +1,11 @@
-# Movies
+# Movies Application
+
+Here's a recording of me explaining the application:
+>> https://youtu.be/9QFNX8T68Ys
+
+
+App Recording:
+https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/b3b5923c-6287-4865-80f6-00b21dfa9240
 
 - Home Screen
 -  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/07777ad5-4c77-438c-8918-d90e8bdf11b4)
@@ -22,7 +29,7 @@
 -  ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/916649d4-63e5-4b44-983b-819ef838647c)
 
 - Trailer Screen
-
+- ![image](https://github.com/SyedAbdulrab/movies_cowlar/assets/99114574/d48a2406-1a10-4ab2-9684-62049435d16f)
 
 
 # Project Structure 
