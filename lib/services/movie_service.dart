@@ -2,20 +2,28 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:movies_cowlar/models/movie_model.dart';
+import "package:flutter_dotenv/flutter_dotenv.dart";
 
 class MovieService {
   final Dio _dio = Dio();
+
   final String endpoint =
       'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
 
   // add to env vars later
-  final apiKey =
-      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMmU2ODExYWJhNzUwNTY1MWI2YzdlZWNhNDgzZGIyMiIsInN1YiI6IjY1NzQyZjQwNjZmMmQyMDExYmVjMWIxZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OORC5IfUdG7UdDpXy9d_WXg6xxpz7MnvIJa33-k3bUo";
+
+  String randomVar = "Store this in Secure storage";
 
   Future<List<Movie>> fetchMovies() async {
     try {
+      final storage = FlutterSecureStorage();
+      String? apiKey = await storage.read(key: 'api_key');
+      print("API KEY FROM SECURE STORAGE");
+      print(apiKey);
+
       final Map<String, String> headers = {
         'Authorization': 'Bearer $apiKey',
         'accept': 'application/json',
@@ -40,7 +48,6 @@ class MovieService {
             .toList();
 
         final Box<Movie> movieBox = Hive.box<Movie>('popmovies');
-        print("HELOOOOOOOOO $movieBox");
         movieBox.addAll(movies);
         return movies;
       } else {
@@ -52,26 +59,29 @@ class MovieService {
   }
 
   Future<Map<String, dynamic>> fetchTrailers(int movieId) async {
-  try {
-    final String trailersEndpoint =
-        'https://api.themoviedb.org/3/movie/$movieId/videos?language=en-US';
-    final Map<String, String> headers = {
-      'Authorization': 'Bearer $apiKey',
-      'accept': 'application/json',
-    };
+    try {
+      final storage = FlutterSecureStorage();
+      String? apiKey = await storage.read(key: 'api_key');
 
-    final Response response =
-        await _dio.get(trailersEndpoint, options: Options(headers: headers));
+      final String trailersEndpoint =
+          'https://api.themoviedb.org/3/movie/$movieId/videos?language=en-US';
+      final Map<String, String> headers = {
+        'Authorization': 'Bearer $apiKey',
+        'accept': 'application/json',
+      };
 
-    if (response.statusCode == 200) {
-      return response.data;
-    } else {
-      throw Exception('Failed to load trailers');
+      final Response response =
+          await _dio.get(trailersEndpoint, options: Options(headers: headers));
+
+      if (response.statusCode == 200) {
+        return response.data;
+      } else {
+        throw Exception('Failed to load trailers');
+      }
+    } catch (error) {
+      throw Exception('Error: $error');
     }
-  } catch (error) {
-    throw Exception('Error: $error');
   }
-}
 }
 
 // YO, ok so we will make functions here, one can be 

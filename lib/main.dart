@@ -1,5 +1,6 @@
 // main.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movies_cowlar/models/movie_model.dart';
 import 'package:movies_cowlar/screens/home_screen.dart';
@@ -9,8 +10,10 @@ import 'package:movies_cowlar/screens/profile_screen.dart';
 import 'package:movies_cowlar/services/movie_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movies_cowlar/utilities/utilities.dart';
-
+import "package:flutter_dotenv/flutter_dotenv.dart";
 void main() async {
+  await dotenv.load();
+    
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
@@ -20,6 +23,9 @@ void main() async {
   final Box<Movie> movieBox = Hive.box<Movie>('popmovies');
   // movieBox.clear();
 
+  final secureStorage = FlutterSecureStorage();
+  await secureStorage.write(key: 'api_key', value: dotenv.env['API_KEY']);
+  
   if (movieBox.isEmpty) {
     final List<Movie> movies = await MovieService().fetchMovies();
     print(movies);
